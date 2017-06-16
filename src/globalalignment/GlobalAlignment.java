@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Computes the best global alignment.
  */
-package localalignment;
+package globalalignment;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -11,10 +9,11 @@ import java.util.logging.Logger;
 
 
 /**
- *
+ * Main class. Creates interface that parses input from the fasta file and from the score matrix. Then creates class SmithWaterman that computes the best global alignment.
+ * Call format of the main function: expected 2 arguments: first - pairs.fasta, second - blosum62.txt
  * @author Kuba
  */
-public class LocalAlignment {
+public class GlobalAlignment {
     
     /**
      * @param args the command line arguments
@@ -33,20 +32,14 @@ public class LocalAlignment {
             i.getMatrix(args[1]);
         } catch (IOException ex) {
             System.out.printf("Could not read data from the given files.\n");
-            Logger.getLogger(LocalAlignment.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GlobalAlignment.class.getName()).log(Level.SEVERE, null, ex);
             return;
         }
-        
-        System.out.printf("\nmatrix.txt:\n");
-        for(int j = 0; j < 4; j++){
-            for(int k = 0; k < 4; k++){
-                System.out.printf("%d ", i.score[j][k]);
-            }
-            System.out.printf("\n");
-        }
-        
+       
         SmithWaterman solution = new SmithWaterman(i.first, i.second, i.score);
         solution.align();
         solution.backtrack();
+        
+        System.out.printf("\n---\n\nScore = %d\n%s\n%s\n%s\n", solution.getScore(), solution.getFirstAligned(), solution.getAlignment(), solution.getSecondAligned());
     }
 }
