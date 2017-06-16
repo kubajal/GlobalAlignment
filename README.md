@@ -9,3 +9,5 @@ matrix.txt format:
 - iii) |sigma| lines follow
 - iiia) line i contains |sigma| integer values
 - iiib) k-th value corresponds to the cost of replacing the i-th letter by the k-th
+
+Docs: https://kubajal.github.io/GlobalAlignment/
