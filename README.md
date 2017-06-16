@@ -11,3 +11,5 @@ matrix.txt format:
 - iiib) k-th value corresponds to the cost of replacing the i-th letter by the k-th
 
 sequences.fasta format: the file contains to sequences to align
+
+docs: https://kubajal.github.io/GlobalAlignment/
