@@ -10,4 +10,6 @@ matrix.txt format:
 - iiia) line i contains |sigma| integer values
 - iiib) k-th value corresponds to the cost of replacing the i-th letter by the k-th
 
+sequences.fasta contains 2 sequences to align
+
 Docs: https://kubajal.github.io/GlobalAlignment/
