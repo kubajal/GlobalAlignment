@@ -91,11 +91,13 @@ public class SmithWaterman {
         for(int i = 1; i < first.length() + 1; i++){
             
             dynProg[i][0] = dynProg[i - 1][0] + score(first.charAt(i-1), '*'); 
+            iPredecessor[i][0] = i - 1;
         }
         
         for(int j = 1; j < second.length() + 1; j++){
 
             dynProg[0][j] = dynProg[0][j - 1] + score(second.charAt(j-1), '*'); 
+            jPredecessor[j][0] = j - 1;
         }  
         for(int i = 1; i < first.length() + 1; i++){
             
